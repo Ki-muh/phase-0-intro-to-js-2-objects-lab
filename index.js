@@ -1,22 +1,29 @@
-const employee = {}
-function updateDriverWithKeyAndValue(employee, key, value) {
-    return Object.assign({}, employee, { [key]: value });
+const employee = {
+  name : 'Sam'
+}
+console.log (employee)
+employee.name = 'Sam';
+
+function updateEmployeeWithKeyAndValue() {
+  const employee = {name: 'Sam'};
+  employee.streetAddress = '11 Broadway';
+    return employee;
   }
   
   function destructivelyUpdateEmployeeWithKeyAndValue(employee, key, value) {
-    employee[key] = value;
-  
+    employee.name = 'Sam';
+    employee.streetAddress = '12 Broadway';
     return employee;
   }
   
   function deleteFromEmployeeByKey(employee, key) {
-    const newEmployee =  Object.assign({}, employee);
-    delete newEmployee[key];
+    const newEmployee = {...employee, key};
+    delete newEmployee.name;
     return newEmployee;
   }
   
-  function destructivelyDeleteFromDriverByKey(employee, key) {
-  Object.assign({}, employee);
-  delete employee[key];
-  return employee;
+  function destructivelyDeleteFromEmployeeByKey(newEmployee, key) {
+  newEmployee.name = 'Sam';
+  delete newEmployee.name;
+  return newEmployee;
   }
